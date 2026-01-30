@@ -1,0 +1,6 @@
+@sistema_notificacao_escolar_back_HostAddress = http://localhost:5179
+
+GET {{sistema_notificacao_escolar_back_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
