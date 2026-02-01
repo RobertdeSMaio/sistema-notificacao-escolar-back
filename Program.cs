@@ -1,10 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using sistema_notificacao_escolar_back.Data;
+using sistema_notificacao_escolar_back.Models.Interfaces.IServiceCollection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("MinhaPoliticaReact", policy =>
     {
-        policy.WithOrigins("http://localhost:5173") 
+        policy.WithOrigins("http://localhost:5173")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
