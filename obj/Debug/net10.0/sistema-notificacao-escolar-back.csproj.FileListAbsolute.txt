@@ -157,3 +157,15 @@ C:\Users\Ágape\Documents\GitHub\sistema-notificacao-escolar-back\obj\Debug\net1
 C:\Users\Ágape\Documents\GitHub\sistema-notificacao-escolar-back\obj\Debug\net10.0\sistema-notificacao-escolar-back.pdb
 C:\Users\Ágape\Documents\GitHub\sistema-notificacao-escolar-back\obj\Debug\net10.0\sistema-notificacao-escolar-back.genruntimeconfig.cache
 C:\Users\Ágape\Documents\GitHub\sistema-notificacao-escolar-back\obj\Debug\net10.0\ref\sistema-notificacao-escolar-back.dll
+C:\Users\Ghost\OneDrive\Desktop\sistema-notificacao-escolar-frond\sistema-notificacao-escolar-back\obj\Debug\net10.0\sistema-notificacao-escolar-back.csproj.AssemblyReference.cache
+C:\Users\Ghost\OneDrive\Desktop\sistema-notificacao-escolar-frond\sistema-notificacao-escolar-back\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\Ghost\OneDrive\Desktop\sistema-notificacao-escolar-frond\sistema-notificacao-escolar-back\obj\Debug\net10.0\sistema-notificacao-escolar-back.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ghost\OneDrive\Desktop\sistema-notificacao-escolar-frond\sistema-notificacao-escolar-back\obj\Debug\net10.0\sistema-notificacao-escolar-back.AssemblyInfoInputs.cache
+C:\Users\Ghost\OneDrive\Desktop\sistema-notificacao-escolar-frond\sistema-notificacao-escolar-back\obj\Debug\net10.0\sistema-notificacao-escolar-back.AssemblyInfo.cs
+C:\Users\Ghost\OneDrive\Desktop\sistema-notificacao-escolar-frond\sistema-notificacao-escolar-back\obj\Debug\net10.0\sistema-notificacao-escolar-back.csproj.CoreCompileInputs.cache
+C:\Users\Ghost\OneDrive\Desktop\sistema-notificacao-escolar-frond\sistema-notificacao-escolar-back\obj\Debug\net10.0\sistema-notificacao-escolar-back.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Ghost\OneDrive\Desktop\sistema-notificacao-escolar-frond\sistema-notificacao-escolar-back\obj\Debug\net10.0\sistema-notificacao-escolar-back.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Ghost\OneDrive\Desktop\sistema-notificacao-escolar-frond\sistema-notificacao-escolar-back\obj\Debug\net10.0\sistema-notificacao-escolar-back.sourcelink.json
+C:\Users\Ghost\OneDrive\Desktop\sistema-notificacao-escolar-frond\sistema-notificacao-escolar-back\obj\Debug\net10.0\sistema-notificacao-escolar-back.dll
+C:\Users\Ghost\OneDrive\Desktop\sistema-notificacao-escolar-frond\sistema-notificacao-escolar-back\obj\Debug\net10.0\refint\sistema-notificacao-escolar-back.dll
+C:\Users\Ghost\OneDrive\Desktop\sistema-notificacao-escolar-frond\sistema-notificacao-escolar-back\obj\Debug\net10.0\sistema-notificacao-escolar-back.pdb
