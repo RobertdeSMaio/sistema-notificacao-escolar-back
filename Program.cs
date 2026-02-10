@@ -12,10 +12,6 @@ using SistemaEscolar.Models.Interfaces;
 var builder = WebApplication.CreateBuilder(args);
 
 
-<<<<<<< HEAD
-=======
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
->>>>>>> 11f46fe328f8d5669174350f7a156edc11c986c2
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
 
@@ -42,18 +38,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 
-<<<<<<< HEAD
 
 builder.Services.AddControllers();
 
 
-=======
-builder.Services.AddControllers();
->>>>>>> 11f46fe328f8d5669174350f7a156edc11c986c2
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-<<<<<<< HEAD
 builder.Services.AddCors(options => {
     options.AddPolicy("EscolaAppPolicy", policy => {
         policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
@@ -66,24 +57,13 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
 
-=======
-var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
-{
->>>>>>> 11f46fe328f8d5669174350f7a156edc11c986c2
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
 
-<<<<<<< HEAD
 app.UseCors("EscolaAppPolicy");
-=======
-app.UseAuthentication(); 
-app.UseAuthorization();
->>>>>>> 11f46fe328f8d5669174350f7a156edc11c986c2
 
 app.MapControllers();
 
