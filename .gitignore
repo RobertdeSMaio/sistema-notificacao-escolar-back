@@ -1,0 +1,66 @@
+# Visual Studio / .NET Core
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+*/bin/
+*/obj/
+out/
+publish/
+artifacts/
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+_ReSharper*/
+
+# NuGet
+*.nupkg
+packages/
+project.lock.json
+.packages/
+
+# Test results / coverage
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+coverage/
+
+# Logs
+*.log
+logs/
+
+# User secrets / local settings
+secrets.json
+appsettings.Development.json
+appsettings.*.local.json
+.env
+
+# Static files / tooling
+wwwroot/node_modules/
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Docker
+docker-compose.override.yml
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Misc
+*.vsix
+*.dbmdl
+*.pdb
+*.cache
+*.bak
