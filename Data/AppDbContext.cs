@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using sistema_notificacao_escolar_back.Models.Entities;
+using SistemaEscolar.Models.Entities;
 
-namespace sistema_notificacao_escolar_back.Data
+namespace SistemaEscolar.Data
 {
     public class AppDbContext : DbContext
     {
