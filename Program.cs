@@ -1,5 +1,4 @@
-using Microsoft.OpenApi.Models;
-using sistema_notificacao_escolar_back.Models.Entities;
+using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
