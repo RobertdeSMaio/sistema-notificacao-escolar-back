@@ -1,5 +1,4 @@
-using Microsoft.OpenApi.Models;
-using sistema_notificacao_escolar_back.Models.Entities;
+using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +21,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c => 
+    app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Escolar v1");
         c.RoutePrefix = string.Empty; // Swagger abre direto na raiz (http://localhost:5000)
