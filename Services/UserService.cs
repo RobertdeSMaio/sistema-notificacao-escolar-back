@@ -1,0 +1,29 @@
+using SistemaNotificacaoEscolarBack.Models.Entities;
+
+public class UserService : IUserService
+{
+    private readonly MyDbContext _context;
+
+    public async Task<UserResponse> RegisterAsync(CreateUserRequest request)
+    {
+        // 1. Instancia a entidade
+        var user = new User {
+            Name = request.Name,
+            Email = request.Email,
+            Role = request.Role
+        };
+
+        // 2. Usa o método que você já criou no modelo!
+        user.SetPassword(request.Password);
+
+        // 3. Salva
+        _context.Users.Add(user);
+        await _context.SaveChangesAsync();
+
+        return new UserResponse(user.Id, user.Name, user.Email, user.Role, user.CreatedAt);
+    }
+}
+
+internal class MyDbContext
+{
+}

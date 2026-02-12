@@ -1,5 +1,6 @@
 // Local: Models/Interfaces/IUserRepository.cs
-using sistema_notificacao_escolar_back.Models.Entities;
+
+using SistemaNotificacaoEscolarBack.Models.Entities;
 
 namespace SistemaEscolar.Models.Interfaces
 {
