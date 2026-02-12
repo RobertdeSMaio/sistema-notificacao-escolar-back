@@ -24,7 +24,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Escolar v1");
-        c.RoutePrefix = string.Empty; // Swagger abre direto na raiz (http://localhost:5000)
+        c.RoutePrefix = string.Empty; // Swagger abre direto na raiz (http://localhost:5279)
     });
 }
 
