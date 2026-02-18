@@ -1,6 +1,6 @@
 using SistemaNotificacaoEscolarBack.Models.Entities;
 
-public class UserService : IUserService
+public class UserService
 {
     private readonly MyDbContext _context;
 

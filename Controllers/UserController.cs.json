@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 
+namespace SistemaNotificacaoEscolar.Controllers;
+
 [ApiController]
 [Route("api/[controller]")]
 public class UserController(IUserService userService) : ControllerBase
@@ -30,6 +32,6 @@ public class CreateUserRequest
 {
 }
 
-internal interface IUserService
+public interface IUserService
 {
 }
