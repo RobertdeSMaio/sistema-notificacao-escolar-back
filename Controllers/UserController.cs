@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using SistemaEscolar.Models.Interfaces;
 
 namespace SistemaNotificacaoEscolar.Controllers;
 
@@ -24,14 +25,6 @@ public class UserController(IUserService userService) : ControllerBase
     }
 }
 
-public class UserResponse
-{
-}
 
-public class CreateUserRequest
-{
-}
 
-public interface IUserService
-{
-}
+

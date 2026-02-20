@@ -1,6 +1,8 @@
 using SistemaNotificacaoEscolarBack.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 
-public class UserService
+
+public class UserService : IUserService
 {
     private readonly MyDbContext _context;
 
@@ -10,7 +12,7 @@ public class UserService
         var user = new User {
             Name = request.Name,
             Email = request.Email,
-            Role = request.Role
+            Role = Enum.Parse<UserRole>(request.Role)
         };
 
         // 2. Usa o método que você já criou no modelo!
@@ -20,10 +22,15 @@ public class UserService
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
 
-        return new UserResponse(user.Id, user.Name, user.Email, user.Role, user.CreatedAt);
+        return new UserResponse(user.Id, user.Name, user.Email, user.Role.ToString(), user.CreatedAt);
     }
-}
 
-internal class MyDbContext
-{
+    public async Task<UserResponse> GetByIdAsync(Guid id)
+    {
+        var user = await _context.Users.FindAsync(id);
+        if (user == null)
+            return null;
+
+        return new UserResponse(user.Id, user.Name, user.Email, user.Role.ToString(), user.CreatedAt);
+    }
 }
