@@ -1,10 +1,22 @@
-using Microsoft.OpenApi;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.WithOrigins("https://sistema-escolar-gules.vercel.app")   // Permite chamadas de qualquer lugar (Vercel, localhost, etc)
+              .AllowAnyMethod()   // Permite GET, POST, PUT, DELETE, etc
+              .AllowAnyHeader();  // Permite qualquer cabeçalho (como o de autenticação)
+    });
+});
+
+
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
@@ -15,17 +27,18 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-
 var app = builder.Build();
+
+
+app.UseCors("AllowAll");
 
 
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Escolar v1");
-        c.RoutePrefix = string.Empty; // Swagger abre direto na raiz (http://localhost:5279)
+    c.RoutePrefix = string.Empty;
 });
-
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
