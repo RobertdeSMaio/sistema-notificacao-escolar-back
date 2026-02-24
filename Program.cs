@@ -19,12 +19,12 @@ builder.Services.AddSwaggerGen(options =>
 var app = builder.Build();
 
 
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Escolar v1");
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Escolar v1");
         c.RoutePrefix = string.Empty; // Swagger abre direto na raiz (http://localhost:5279)
-    });
+});
 
 
 app.UseHttpsRedirection();
