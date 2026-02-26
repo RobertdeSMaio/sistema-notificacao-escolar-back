@@ -2,13 +2,14 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using SistemaNotificacaoEscolarBack.Data.Context;
 using SistemaNotificacaoEscolarBack.Models.Interfaces.IUserService;
+using SistemaNotificacaoEscolar.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddDbContext<MyDbContext>(options =>
+builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseInMemoryDatabase("EscolarDb"));
 
 builder.Services.AddScoped<IUserService, UserService>();
