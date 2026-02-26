@@ -1,6 +1,8 @@
 using SistemaNotificacaoEscolarBack.Models.Entities;
 using SistemaNotificacaoEscolarBack.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using SistemaNotificacaoEscolarBack.Models.Interfaces.IUserService;
+using SistemaNotificacaoEscolarBack.Models.DTOs;
 
 
 public class UserService : IUserService
@@ -13,7 +15,7 @@ public class UserService : IUserService
         var user = new User {
             Name = request.Name,
             Email = request.Email,
-            Role = Enum.Parse<UserRole>(request.Role)
+            Cpf = request.Cpf
         };
 
         // 2. Usa o método que você já criou no modelo!
@@ -23,7 +25,7 @@ public class UserService : IUserService
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
 
-        return new UserResponse(user.Id, user.Name, user.Email, user.Role.ToString(), user.CreatedAt);
+        return new UserResponse(user.Id, user.Name, user.Email, user.Cpf.ToString(), user.CreatedAt);
     }
 
     public async Task<UserResponse> GetByIdAsync(Guid id)
@@ -32,7 +34,7 @@ public class UserService : IUserService
         if (user == null)
             return null;
 
-        return new UserResponse(user.Id, user.Name, user.Email, user.Role.ToString(), user.CreatedAt);
+        return new UserResponse(user.Id, user.Name, user.Email, user.Cpf.ToString(), user.CreatedAt);
     }
 
     public async Task<UserResponse> LoginAsync(CreateUserRequest request)
@@ -44,6 +46,6 @@ public class UserService : IUserService
         if (!user.VerifyPassword(request.Password))
             return null;
 
-        return new UserResponse(user.Id, user.Name, user.Email, user.Role.ToString(), user.CreatedAt);
+        return new UserResponse(user.Id, user.Name, user.Email, user.Cpf.ToString(), user.CreatedAt);
     }
 }

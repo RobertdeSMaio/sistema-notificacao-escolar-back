@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using SistemaEscolar.Models.Interfaces;
-using SistemaNotificacaoEscolarBack.Models.Entities;
-using SistemaNotificacaoEscolarBack.Models;
+using SistemaNotificacaoEscolarBack.Models.DTOs;
+using SistemaNotificacaoEscolarBack.Models.Interfaces.IUserService;
 
 namespace SistemaNotificacaoEscolar.Controllers;
 

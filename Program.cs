@@ -1,6 +1,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using SistemaNotificacaoEscolarBack.Data.Context;
+using SistemaNotificacaoEscolarBack.Models.Interfaces.IUserService;
 
 var builder = WebApplication.CreateBuilder(args);
 

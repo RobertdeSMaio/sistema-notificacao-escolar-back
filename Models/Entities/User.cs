@@ -33,7 +33,7 @@ namespace SistemaNotificacaoEscolarBack.Models.Entities
         public string PasswordHash { get; private set; } = string.Empty;
 
         [Required]
-        public UserRole Role { get; set; } = UserRole.Student;
+        public string Cpf { get; set; } = string.Empty;
 
         public bool IsActive { get; set; } = true;
 
