@@ -85,3 +85,4 @@ C:\Users\Ágape\Documents\GitHub\sistema-notificacao-escolar-back\obj\Debug\net1
 C:\Users\Ágape\Documents\GitHub\sistema-notificacao-escolar-back\obj\Debug\net10.0\sistema-notificacao-escolar-back.pdb
 C:\Users\Ágape\Documents\GitHub\sistema-notificacao-escolar-back\obj\Debug\net10.0\sistema-notificacao-escolar-back.genruntimeconfig.cache
 C:\Users\Ágape\Documents\GitHub\sistema-notificacao-escolar-back\obj\Debug\net10.0\ref\sistema-notificacao-escolar-back.dll
+C:\Users\Ágape\Documents\GitHub\sistema-notificacao-escolar-back\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.InMemory.dll

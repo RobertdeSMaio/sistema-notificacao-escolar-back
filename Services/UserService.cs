@@ -1,4 +1,5 @@
 using SistemaNotificacaoEscolarBack.Models.Entities;
+using SistemaNotificacaoEscolarBack.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
 
