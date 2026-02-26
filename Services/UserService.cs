@@ -33,4 +33,16 @@ public class UserService : IUserService
 
         return new UserResponse(user.Id, user.Name, user.Email, user.Role.ToString(), user.CreatedAt);
     }
+
+    public async Task<UserResponse> LoginAsync(CreateUserRequest request)
+    {
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
+        if (user == null)
+            return null;
+
+        if (!user.VerifyPassword(request.Password))
+            return null;
+
+        return new UserResponse(user.Id, user.Name, user.Email, user.Role.ToString(), user.CreatedAt);
+    }
 }
