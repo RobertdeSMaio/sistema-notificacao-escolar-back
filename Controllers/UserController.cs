@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SistemaEscolar.Models.Interfaces;
+using SistemaNotificacaoEscolarBack.Models.Entities;
+using SistemaNotificacaoEscolarBack.Models;
 
 namespace SistemaNotificacaoEscolar.Controllers;
 
@@ -9,12 +11,26 @@ public class UserController(IUserService userService) : ControllerBase
 {
     private readonly IUserService _userService = userService;
 
-  [HttpPost]
-    public async Task<ActionResult<UserResponse>> Create(CreateUserRequest request)
+    [HttpPost("register")]
+    public async Task<ActionResult<UserResponse>> Create([FromBody] CreateUserRequest request)
     {
         var user = await _userService.RegisterAsync(request);
         
+
         return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
+    }
+
+    [HttpPost("login")]
+    public async Task<ActionResult> Login([FromBody] CreateUserRequest request)
+    {
+        var response = await _userService.LoginAsync(request);
+
+        if (response == null)
+        {
+            return Unauthorized(new { message = "E-mail ou senha inválidos" });
+        }
+
+        return Ok(response);
     }
 
     [HttpGet("{id}")]
@@ -24,7 +40,3 @@ public class UserController(IUserService userService) : ControllerBase
         return user is not null ? Ok(user) : NotFound();
     }
 }
-
-
-
-
