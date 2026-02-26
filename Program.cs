@@ -1,3 +1,5 @@
+using System;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
@@ -15,7 +17,7 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddSwaggerGen(options =>
 {
-    options.SwaggerDoc("v1", new global::Microsoft.OpenApi.Models.OpenApiInfo
+    options.SwaggerDoc("v1", new global::Microsoft.OpenApi.OpenApiInfo
     {
         Title = "API Sistema Escolar",
         Version = "v1",
