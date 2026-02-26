@@ -1,10 +1,7 @@
-using Microsoft.OpenApi;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-
 
 builder.Services.AddCors(options =>
 {
@@ -16,10 +13,9 @@ builder.Services.AddCors(options =>
     });
 });
 
-
 builder.Services.AddSwaggerGen(options =>
 {
-    options.SwaggerDoc("v1", new OpenApiInfo
+    options.SwaggerDoc("v1", new global::Microsoft.OpenApi.Models.OpenApiInfo
     {
         Title = "API Sistema Escolar",
         Version = "v1",
@@ -29,9 +25,7 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-
 app.UseCors("AllowAll");
-
 
 app.UseSwagger();
 app.UseSwaggerUI(c =>
@@ -41,6 +35,7 @@ app.UseSwaggerUI(c =>
 });
 
 app.UseHttpsRedirection();
+
 app.UseAuthorization();
 app.MapControllers();
 
