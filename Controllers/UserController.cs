@@ -14,8 +14,11 @@ public class UserController(IUserService userService) : ControllerBase
     [HttpPost("register")]
     public async Task<ActionResult<UserResponse>> Create([FromBody] CreateUserRequest request)
     {
+        if(request == null) return BadRequest(new { message = "Dados de registro inválidos" });
+
         var user = await _userService.RegisterAsync(request);
         
+        if(user == null) return BadRequest(new { message = "E-mail já registrado" });
 
         return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
     }
