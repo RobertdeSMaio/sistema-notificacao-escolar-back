@@ -11,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 Env.Load();
 
-var connectionString = Environment.GetEnvironmentVariable("PostgresConnection");
+var connectionString = Environment.GetEnvironmentVariable("POSTGRES_CONNECTION");
 
 builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseNpgsql(connectionString));
