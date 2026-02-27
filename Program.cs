@@ -2,14 +2,19 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using SistemaNotificacaoEscolarBack.Data.Context;
 using SistemaNotificacaoEscolarBack.Models.Interfaces.IUserService;
+using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
+Env.Load();
+
+var connectionString = Environment.GetEnvironmentVariable("PostgresConnection");
+
 builder.Services.AddDbContext<MyDbContext>(options =>
-    options.UseInMemoryDatabase("EscolarDb"));
+    options.UseNpgsql(connectionString));
 
 builder.Services.AddScoped<IUserService, UserService>();
 
