@@ -17,6 +17,17 @@ public class UserService : IUserService
 
     public async Task<UserResponse> RegisterAsync(CreateUserRequest request)
     {
+        var emailExists = await _context.Users.AnyAsync(u => u.Email == request.Email);
+    if (emailExists)
+    {
+        throw new Exception("Este e-mail já está cadastrado.");
+    }
+
+    var cpfExists = await _context.Users.AnyAsync(u => u.Cpf == request.Cpf);
+    if (cpfExists)
+    {
+        throw new Exception("Este CPF já está cadastrado.");
+    }
         if (request == null) return null!;
 
         var user = new User {
@@ -40,7 +51,7 @@ public class UserService : IUserService
             user.CreatedAt, 
             user.Role
         );
-    }
+}
 
     public async Task<UserResponse?> GetByIdAsync(Guid id)
     {
