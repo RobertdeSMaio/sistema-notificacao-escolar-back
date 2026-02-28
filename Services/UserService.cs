@@ -11,17 +11,14 @@ public class UserService : IUserService
 
     public async Task<UserResponse> RegisterAsync(CreateUserRequest request)
     {
-        // 1. Instancia a entidade
         var user = new User {
             Name = request.Name,
             Email = request.Email,
             Cpf = request.Cpf
         };
 
-        // 2. Usa o método que você já criou no modelo!
         user.SetPassword(request.Password);
 
-        // 3. Salva
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
 

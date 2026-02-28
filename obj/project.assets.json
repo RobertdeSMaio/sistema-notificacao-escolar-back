@@ -4182,24 +4182,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ágape\\.nuget\\packages\\": {}
+    "C:\\Users\\Ghost\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ágape\\Documents\\GitHub\\sistema-notificacao-escolar-back\\sistema-notificacao-escolar-back.csproj",
+      "projectUniqueName": "C:\\Users\\Ghost\\OneDrive\\Desktop\\sistema-notificacao-escolar-frond\\sistema-notificacao-escolar-back\\sistema-notificacao-escolar-back.csproj",
       "projectName": "sistema-notificacao-escolar-back",
-      "projectPath": "C:\\Users\\Ágape\\Documents\\GitHub\\sistema-notificacao-escolar-back\\sistema-notificacao-escolar-back.csproj",
-      "packagesPath": "C:\\Users\\Ágape\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ágape\\Documents\\GitHub\\sistema-notificacao-escolar-back\\obj\\",
+      "projectPath": "C:\\Users\\Ghost\\OneDrive\\Desktop\\sistema-notificacao-escolar-frond\\sistema-notificacao-escolar-back\\sistema-notificacao-escolar-back.csproj",
+      "packagesPath": "C:\\Users\\Ghost\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Ghost\\OneDrive\\Desktop\\sistema-notificacao-escolar-frond\\sistema-notificacao-escolar-back\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Ágape\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Ghost\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4292,7 +4300,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
