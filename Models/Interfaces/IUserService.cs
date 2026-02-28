@@ -5,7 +5,6 @@ namespace SistemaNotificacaoEscolarBack.Models.Interfaces.IUserService;
 public interface IUserService
 {
     Task<UserResponse> RegisterAsync(CreateUserRequest request);
-
     Task<UserResponse?> GetByIdAsync(Guid id);
     Task<UserResponse?> LoginAsync(CreateUserRequest request);
 }

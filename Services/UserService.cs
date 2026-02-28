@@ -4,18 +4,23 @@ using Microsoft.EntityFrameworkCore;
 using SistemaNotificacaoEscolarBack.Models.Interfaces.IUserService;
 using SistemaNotificacaoEscolarBack.Models.DTOs;
 
-
 public class UserService : IUserService
 {
     private readonly MyDbContext _context;
+    public UserService(MyDbContext context)
+    {
+        _context = context;
+    }
 
     public async Task<UserResponse> RegisterAsync(CreateUserRequest request)
     {
+        if (request == null) return null!;
+
         var user = new User {
             Name = request.Name,
             Email = request.Email,
             Cpf = request.Cpf ?? string.Empty,
-            Role = request.Role ?? string.Empty,
+            Role = request.Role ?? "Student",
         };
 
         user.SetPassword(request.Password);
@@ -23,27 +28,25 @@ public class UserService : IUserService
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
 
-        return new UserResponse(user.Id, user.Name, user.Email, user.Cpf.ToString(), user.CreatedAt, user.Role.ToString());
+        return new UserResponse(user.Id, user.Name, user.Email, user.Cpf, user.CreatedAt, user.Role);
     }
 
-    public async Task<UserResponse> GetByIdAsync(Guid id)
+    public async Task<UserResponse?> GetByIdAsync(Guid id)
     {
         var user = await _context.Users.FindAsync(id);
         if (user == null)
             return null;
 
-        return new UserResponse(user.Id, user.Name, user.Email, user.Cpf.ToString(), user.CreatedAt, user.Role.ToString());
+        return new UserResponse(user.Id, user.Name, user.Email, user.Cpf, user.CreatedAt, user.Role);
     }
 
-    public async Task<UserResponse> LoginAsync(CreateUserRequest request)
+    public async Task<UserResponse?> LoginAsync(CreateUserRequest request)
     {
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
-        if (user == null)
+        
+        if (user == null || !user.VerifyPassword(request.Password))
             return null;
 
-        if (!user.VerifyPassword(request.Password))
-            return null;
-
-        return new UserResponse(user.Id, user.Name, user.Email, user.Cpf.ToString(), user.CreatedAt, user.Role.ToString());
+        return new UserResponse(user.Id, user.Name, user.Email, user.Cpf, user.CreatedAt, user.Role);
     }
 }
