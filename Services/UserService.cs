@@ -4,9 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using SistemaNotificacaoEscolarBack.Models.Interfaces.IUserService;
 using SistemaNotificacaoEscolarBack.Models.DTOs;
 
+namespace SistemaNotificacaoEscolarBack.Models.Services;
+
 public class UserService : IUserService
 {
     private readonly MyDbContext _context;
+
     public UserService(MyDbContext context)
     {
         _context = context;
@@ -25,19 +28,33 @@ public class UserService : IUserService
 
         user.SetPassword(request.Password);
 
+
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
 
-        return new UserResponse(user.Id, user.Name, user.Email, user.Cpf, user.CreatedAt, user.Role);
+        return new UserResponse(
+            user.Id, 
+            user.Name, 
+            user.Email, 
+            user.Cpf, 
+            user.CreatedAt, 
+            user.Role
+        );
     }
 
     public async Task<UserResponse?> GetByIdAsync(Guid id)
     {
         var user = await _context.Users.FindAsync(id);
-        if (user == null)
-            return null;
+        if (user == null) return null;
 
-        return new UserResponse(user.Id, user.Name, user.Email, user.Cpf, user.CreatedAt, user.Role);
+        return new UserResponse(
+            user.Id, 
+            user.Name, 
+            user.Email, 
+            user.Cpf, 
+            user.CreatedAt, 
+            user.Role
+        );
     }
 
     public async Task<UserResponse?> LoginAsync(CreateUserRequest request)
@@ -47,6 +64,13 @@ public class UserService : IUserService
         if (user == null || !user.VerifyPassword(request.Password))
             return null;
 
-        return new UserResponse(user.Id, user.Name, user.Email, user.Cpf, user.CreatedAt, user.Role);
+        return new UserResponse(
+            user.Id, 
+            user.Name, 
+            user.Email, 
+            user.Cpf, 
+            user.CreatedAt, 
+            user.Role
+        );
     }
 }
