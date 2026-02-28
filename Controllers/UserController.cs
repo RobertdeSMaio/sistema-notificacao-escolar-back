@@ -13,6 +13,7 @@ public class UserController(IUserService userService) : ControllerBase
     [HttpPost("register")]
     public async Task<ActionResult<UserResponse>> Create([FromBody] CreateUserRequest request)
     {
+        try{
         if (request == null) return BadRequest(new { message = "Dados de registro inválidos" });
 
         var user = await _userService.RegisterAsync(request);
@@ -20,7 +21,12 @@ public class UserController(IUserService userService) : ControllerBase
         if (user == null) return BadRequest(new { message = "E-mail já registrado" });
 
         return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
+        }
+    catch (Exception ex)
+    {
+        return StatusCode(500, new { message = ex.Message, inner = ex.InnerException?.Message });
     }
+}
 
     [HttpPost("login")]
     public async Task<ActionResult> Login([FromBody] CreateUserRequest request)
