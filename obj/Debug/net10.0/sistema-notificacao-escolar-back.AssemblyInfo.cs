@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("sistema-notificacao-escolar-back")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4cefa4fa8e5e2b0e1fcba3e6070be8cc611703aa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15dd9705a103930def8131b9769f4bbce511c72d")]
 [assembly: System.Reflection.AssemblyProductAttribute("sistema-notificacao-escolar-back")]
 [assembly: System.Reflection.AssemblyTitleAttribute("sistema-notificacao-escolar-back")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

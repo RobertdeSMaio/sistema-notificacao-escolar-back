@@ -17,6 +17,11 @@ var connectionString = Environment.GetEnvironmentVariable("POSTGRES_CONNECTION")
 builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseNpgsql(connectionString));
 
+    if (string.IsNullOrEmpty(connectionString))
+{
+    throw new Exception("A Connection String não foi encontrada! Verifique as variáveis de ambiente.");
+}
+
 builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddCors(options =>
