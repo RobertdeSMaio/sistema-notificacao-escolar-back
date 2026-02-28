@@ -18,12 +18,15 @@ public class UserResponse
     public string CPF { get; set; }
     public DateTime CreatedAt { get; set; }
 
-public UserResponse(Guid id, string name, string email, string cpf, DateTime createdAt)
+    public string Role { get; set; }
+
+public UserResponse(Guid id, string name, string email, string cpf, DateTime createdAt, string role)
   {
     Id = id;
     Name = name;
     Email = email;
     CPF = cpf;
+    Role = role;
     CreatedAt = createdAt;
     }
 

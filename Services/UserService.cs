@@ -14,7 +14,8 @@ public class UserService : IUserService
         var user = new User {
             Name = request.Name,
             Email = request.Email,
-            Cpf = request.Cpf
+            Cpf = request.Cpf,
+            Role = Enum.TryParse<UserRole>(request.Role, true, out var role) ? role : UserRole.Student
         };
 
         user.SetPassword(request.Password);
@@ -22,7 +23,7 @@ public class UserService : IUserService
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
 
-        return new UserResponse(user.Id, user.Name, user.Email, user.Cpf.ToString(), user.CreatedAt);
+        return new UserResponse(user.Id, user.Name, user.Email, user.Cpf.ToString(), user.CreatedAt, user.Role.ToString());
     }
 
     public async Task<UserResponse> GetByIdAsync(Guid id)
@@ -31,7 +32,7 @@ public class UserService : IUserService
         if (user == null)
             return null;
 
-        return new UserResponse(user.Id, user.Name, user.Email, user.Cpf.ToString(), user.CreatedAt);
+        return new UserResponse(user.Id, user.Name, user.Email, user.Cpf.ToString(), user.CreatedAt, user.Role.ToString());
     }
 
     public async Task<UserResponse> LoginAsync(CreateUserRequest request)
@@ -43,6 +44,6 @@ public class UserService : IUserService
         if (!user.VerifyPassword(request.Password))
             return null;
 
-        return new UserResponse(user.Id, user.Name, user.Email, user.Cpf.ToString(), user.CreatedAt);
+        return new UserResponse(user.Id, user.Name, user.Email, user.Cpf.ToString(), user.CreatedAt, user.Role.ToString());
     }
 }
