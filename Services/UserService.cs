@@ -14,8 +14,8 @@ public class UserService : IUserService
         var user = new User {
             Name = request.Name,
             Email = request.Email,
-            Cpf = request.Cpf,
-            Role = Enum.TryParse<UserRole>(request.Role, true, out var role) ? role.ToString() : "Student"
+            Cpf = request.Cpf ?? string.Empty,
+            Role = request.Role ?? string.Empty,
         };
 
         user.SetPassword(request.Password);

@@ -21,6 +21,7 @@ public class UserController(IUserService userService) : ControllerBase
         if (user == null) return BadRequest(new { message = "E-mail já registrado" });
 
         return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
+
         }
     catch (Exception ex)
     {
