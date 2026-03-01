@@ -8,4 +8,5 @@ public class CreateUserRequest
     public string? Cpf { get; set; }
 
     public string Role { get; set; } = "Student";
+    public int? Telefone { get; set; }
 }

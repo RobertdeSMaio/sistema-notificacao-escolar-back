@@ -16,15 +16,16 @@ public class UserResponse
     public string Email { get; set; }
     public string CPF { get; set; }
     public DateTime CreatedAt { get; set; }
-
     public string Role { get; set; }
+    public int Telefone { get; set; }
 
-public UserResponse(Guid id, string name, string email, string cpf, DateTime createdAt, string role)
+public UserResponse(Guid id, string name, string email, string cpf, DateTime createdAt, string role, int telefone = 0)
   {
     Id = id;
     Name = name;
     Email = email;
     CPF = cpf;
+    Telefone = telefone;
     Role = role;
     CreatedAt = createdAt;
     }

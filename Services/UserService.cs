@@ -34,7 +34,9 @@ public class UserService : IUserService
             Name = request.Name,
             Email = request.Email,
             Cpf = request.Cpf ?? string.Empty,
-            Role = request.Role ?? "Student",
+            Telefone = request.Telefone ?? 0,
+            Role = request.Role ?? "Student"
+            
         };
 
         user.SetPassword(request.Password);
@@ -44,12 +46,14 @@ public class UserService : IUserService
         await _context.SaveChangesAsync();
 
         return new UserResponse(
-            user.Id, 
-            user.Name, 
-            user.Email, 
-            user.Cpf, 
-            user.CreatedAt, 
-            user.Role
+            user.Id,
+            user.Name,
+            user.Email,
+            user.Cpf,
+            user.CreatedAt,
+            user.Role,
+            user.Telefone
+            
         );
 }
 
@@ -59,12 +63,13 @@ public class UserService : IUserService
         if (user == null) return null;
 
         return new UserResponse(
-            user.Id, 
-            user.Name, 
-            user.Email, 
-            user.Cpf, 
-            user.CreatedAt, 
-            user.Role
+            user.Id,
+            user.Name,
+            user.Email,
+            user.Cpf,
+            user.CreatedAt,
+            user.Role,
+            user.Telefone
         );
     }
 
@@ -76,12 +81,13 @@ public class UserService : IUserService
             return null;
 
         return new UserResponse(
-            user.Id, 
-            user.Name, 
-            user.Email, 
-            user.Cpf, 
-            user.CreatedAt, 
-            user.Role
+            user.Id,
+            user.Name,
+            user.Email,
+            user.Cpf,
+            user.CreatedAt,
+            user.Role,
+            user.Telefone
         );
     }
 }
