@@ -17,9 +17,9 @@ public class UserResponse
     public string CPF { get; set; }
     public DateTime CreatedAt { get; set; }
     public string Role { get; set; }
-    public int Telefone { get; set; }
+    public string Telefone { get; set; }
 
-public UserResponse(Guid id, string name, string email, string cpf, DateTime createdAt, string role, int telefone = 0)
+public UserResponse(Guid id, string name, string email, string cpf, DateTime createdAt, string role, string telefone)
   {
     Id = id;
     Name = name;

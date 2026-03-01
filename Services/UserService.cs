@@ -34,7 +34,7 @@ public class UserService : IUserService
             Name = request.Name,
             Email = request.Email,
             Cpf = request.Cpf ?? string.Empty,
-            Telefone = request.Telefone ?? 0,
+            Telefone = request.Telefone ?? string.Empty,
             Role = request.Role ?? "Student"
             
         };
