@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SistemaNotificacaoEscolarBack.Data.Context;
 using SistemaNotificacaoEscolarBack.Models.Interfaces.IUserService;
 using DotNetEnv;
+using SistemaNotificacaoEscolarBack.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
