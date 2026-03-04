@@ -2,17 +2,10 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Cryptography;
+using SistemaNotificacaoEscolarBack.Models.Entities.role;
 
 namespace SistemaNotificacaoEscolarBack.Models.Entities
 {
-    public enum UserRole
-    {
-        Admin,
-        Teacher,
-        Student,
-        Parent
-    }
-
     [Table("Users")]
     public class User
     {

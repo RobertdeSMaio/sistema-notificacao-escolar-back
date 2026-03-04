@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using SistemaNotificacaoEscolarBack.Models.DTOs;
 using SistemaNotificacaoEscolarBack.Models.Interfaces.IUserService;
+using SistemaNotificacaoEscolarBack.Services;
 
 namespace SistemaNotificacaoEscolar.Controllers;
+
 
 [ApiController]
 [Route("api/[controller]")]
@@ -13,13 +15,17 @@ public class UserController(IUserService userService) : ControllerBase
     [HttpPost("register")]
     public async Task<ActionResult<UserResponse>> Create([FromBody] CreateUserRequest request)
     {
+        
         if(request == null) return BadRequest(new { message = "Dados de registro inválidos" });
 
-        var user = await _userService.RegisterAsync(request);
-        
-        if(user == null) return BadRequest(new { message = "E-mail já registrado" });
-
-        return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
+        try
+        {
+            var user = await _userService.RegisterAsync(request);
+            return Ok(user);
+        }catch (Exception ex)
+        {
+            return Conflict(new { message = ex.Message });
+        }
     }
 
     [HttpPost("login")]

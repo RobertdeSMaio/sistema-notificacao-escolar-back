@@ -3,25 +3,33 @@ using SistemaNotificacaoEscolarBack.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using SistemaNotificacaoEscolarBack.Models.Interfaces.IUserService;
 using SistemaNotificacaoEscolarBack.Models.DTOs;
+using Microsoft.AspNetCore.Http.HttpResults;
 
-
+namespace SistemaNotificacaoEscolarBack.Services;
 public class UserService : IUserService
 {
     private readonly MyDbContext _context;
 
     public async Task<UserResponse> RegisterAsync(CreateUserRequest request)
     {
-        // 1. Instancia a entidade
+        var userExist = await _context.Users.AnyAsync(u => u.Email == request.Email);
+        if (userExist)
+        {
+        throw new Exception("Email já está em uso");
+        }
+        var userExistCpf = await _context.Users.AnyAsync(u => u.Cpf == request.Cpf);
+        if (userExistCpf)
+        {
+        throw new Exception("CPF já está em uso");
+        }
         var user = new User {
             Name = request.Name,
             Email = request.Email,
             Cpf = request.Cpf
         };
 
-        // 2. Usa o método que você já criou no modelo!
         user.SetPassword(request.Password);
 
-        // 3. Salva
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
 
