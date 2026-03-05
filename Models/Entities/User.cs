@@ -29,6 +29,8 @@ namespace SistemaNotificacaoEscolarBack.Models.Entities
         public string Cpf { get; set; } = string.Empty;
 
         public bool IsActive { get; set; } = true;
+        public String Telefone { get; set; } = string.Empty;
+        public string Role { get; set; } = UserRole.Student.ToString();
 
         [Required]
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
