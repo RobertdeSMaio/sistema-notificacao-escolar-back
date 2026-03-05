@@ -38,7 +38,7 @@ namespace SistemaNotificacaoEscolarBack.Models.Entities
         public bool IsActive { get; set; } = true;
 
         public string Role { get; set; } = "Student";
-        public string Telefone { get; set; }
+        public string? Telefone { get; set; }
 
         [Required]
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
