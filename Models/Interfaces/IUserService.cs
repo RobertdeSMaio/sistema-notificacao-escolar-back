@@ -5,7 +5,6 @@ namespace SistemaNotificacaoEscolarBack.Models.Interfaces.IUserService;
 public interface IUserService
 {
     Task<UserResponse> RegisterAsync(CreateUserRequest request);
-
     Task<UserResponse?> GetByIdAsync(Guid id);
     Task<UserResponse?> LoginAsync(CreateUserRequest request);
 }
@@ -16,9 +15,9 @@ public class UserResponse
     public string Name { get; set; }
     public string Email { get; set; }
     public string CPF { get; set; }
+    public DateTime CreatedAt { get; set; }
     public string Role { get; set; }
     public string Telefone { get; set; }
-    public DateTime CreatedAt { get; set; }
 
 public UserResponse(Guid id, string name, string email, string cpf, DateTime createdAt, string role, string telefone)
   {
@@ -26,9 +25,9 @@ public UserResponse(Guid id, string name, string email, string cpf, DateTime cre
     Name = name;
     Email = email;
     CPF = cpf;
-    CreatedAt = createdAt;
     Telefone = telefone;
     Role = role;
+    CreatedAt = createdAt;
     }
 
 }

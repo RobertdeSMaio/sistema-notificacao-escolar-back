@@ -2,10 +2,17 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Cryptography;
-using SistemaNotificacaoEscolarBack.Models.Entities.role;
 
 namespace SistemaNotificacaoEscolarBack.Models.Entities
 {
+    public enum UserRole
+    {
+        Admin,
+        Teacher,
+        Student,
+        Parent
+    }
+
     [Table("Users")]
     public class User
     {
@@ -29,8 +36,9 @@ namespace SistemaNotificacaoEscolarBack.Models.Entities
         public string Cpf { get; set; } = string.Empty;
 
         public bool IsActive { get; set; } = true;
-        public String Telefone { get; set; } = string.Empty;
-        public string Role { get; set; } = UserRole.Student.ToString();
+
+        public string Role { get; set; } = "Student";
+        public string Telefone { get; set; }
 
         [Required]
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
