@@ -22,8 +22,9 @@ public class UserResponse
     public DateTime CreatedAt { get; set; }
     public string Role { get; set; }
     public string Telefone { get; set; }
+    public DateTime UpdatedAt { get; set; }
 
-public UserResponse(Guid id, string name, string email, string cpf, DateTime createdAt, string role, string telefone)
+public UserResponse(Guid id, string name, string email, string cpf, DateTime createdAt, DateTime updatedAt, string role, string telefone)
   {
     Id = id;
     Name = name;
@@ -32,6 +33,7 @@ public UserResponse(Guid id, string name, string email, string cpf, DateTime cre
     Telefone = telefone;
     Role = role;
     CreatedAt = createdAt;
+    UpdatedAt = updatedAt;
     }
 
 

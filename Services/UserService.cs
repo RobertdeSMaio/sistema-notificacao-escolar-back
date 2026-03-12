@@ -51,6 +51,7 @@ public class UserService : IUserService
             user.Email,
             user.Cpf,
             user.CreatedAt,
+            user.UpdatedAt,
             user.Role,
             user.Telefone
             
@@ -68,6 +69,7 @@ public class UserService : IUserService
             user.Email,
             user.Cpf,
             user.CreatedAt,
+            user.UpdatedAt,
             user.Role,
             user.Telefone
         );
@@ -86,6 +88,7 @@ public class UserService : IUserService
             user.Email,
             user.Cpf,
             user.CreatedAt,
+            user.UpdatedAt,
             user.Role,
             user.Telefone
         );
@@ -100,6 +103,7 @@ public class UserService : IUserService
             u.Email,
             u.Cpf,
             u.CreatedAt,
+            u.UpdatedAt,
             u.Role,
             u.Telefone
         )).ToList();
@@ -111,7 +115,7 @@ public class UserService : IUserService
         user.Name = data.Name;
         user.Email = data.Email;
         user.Telefone = data.Telefone;
-        user.UpdatedAt = DateTime.UtcNow; //
+        user.UpdatedAt = DateTime.UtcNow;
 
         await _context.SaveChangesAsync();
         return true;

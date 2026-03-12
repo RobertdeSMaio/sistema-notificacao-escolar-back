@@ -2,17 +2,10 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Cryptography;
+using SistemaNotificacaoEscolarBack.Models.Entities.role;
 
 namespace SistemaNotificacaoEscolarBack.Models.Entities
 {
-    public enum UserRole
-    {
-        Admin,
-        Teacher,
-        Student,
-        Parent
-    }
-
     [Table("Users")]
     public class User
     {
@@ -42,8 +35,9 @@ namespace SistemaNotificacaoEscolarBack.Models.Entities
 
         [Required]
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        
 
-        public DateTime? UpdatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
         // Set a password using PBKDF2 (RFC2898) with SHA256
         public void SetPassword(string password, int iterations = 100_000)
