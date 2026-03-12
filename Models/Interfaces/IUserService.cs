@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using SistemaNotificacaoEscolarBack.Models.DTOs;
 
 namespace SistemaNotificacaoEscolarBack.Models.Interfaces.IUserService;
@@ -7,6 +8,7 @@ public interface IUserService
     Task<UserResponse> RegisterAsync(CreateUserRequest request);
     Task<UserResponse?> GetByIdAsync(Guid id);
     Task<UserResponse?> LoginAsync(CreateUserRequest request);
+    Task<IEnumerable<UserResponse?>> GetAllAsync();
 }
 
 public class UserResponse
@@ -29,5 +31,6 @@ public UserResponse(Guid id, string name, string email, string cpf, DateTime cre
     Role = role;
     CreatedAt = createdAt;
     }
+
 
 }

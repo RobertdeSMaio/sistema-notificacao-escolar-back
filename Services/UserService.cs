@@ -90,4 +90,18 @@ public class UserService : IUserService
             user.Telefone
         );
     }
+    public async Task<IEnumerable<UserResponse>> GetAllAsync()
+    {
+        var users = await _context.Users.ToListAsync();
+
+        return users.Select(u => new UserResponse(
+            u.Id,
+            u.Name,
+            u.Email,
+            u.Cpf,
+            u.CreatedAt,
+            u.Role,
+            u.Telefone
+        )).ToList();
+    }
 }
