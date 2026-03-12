@@ -37,6 +37,7 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1",
         Description = "Backend de notificações escolares"
     });
+    
 });
 
 var app = builder.Build();

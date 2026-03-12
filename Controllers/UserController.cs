@@ -54,7 +54,7 @@ public class UserController(IUserService userService) : ControllerBase
         var users = await _userService.GetAllAsync();
         return Ok(users);
     }
-    [HttpPut("UpdateU")]
+    [HttpPut("{id}")]
     public async Task<ActionResult> Update(Guid id, [FromBody] UserResponse request)
     {
         var sucesso = await _userService.UpdateAsync(id, request);
@@ -63,7 +63,7 @@ public class UserController(IUserService userService) : ControllerBase
 
         return NoContent();
     }
-    [HttpDelete("DeleteU")]
+    [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteAsync(Guid id)
     {
         var sucesso = await _userService.DeleteAsync(id);
