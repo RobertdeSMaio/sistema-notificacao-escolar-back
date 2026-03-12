@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using SistemaNotificacaoEscolarBack.Models.DTOs;
+using SistemaNotificacaoEscolarBack.Models.Entities;
 using SistemaNotificacaoEscolarBack.Models.Interfaces.IUserService;
 using SistemaNotificacaoEscolarBack.Models.Services;
 
@@ -52,5 +53,24 @@ public class UserController(IUserService userService) : ControllerBase
     {
         var users = await _userService.GetAllAsync();
         return Ok(users);
+    }
+    [HttpPut("UpdateU")]
+    public async Task<ActionResult> Update(Guid id, [FromBody] UserResponse request)
+    {
+        var sucesso = await _userService.UpdateAsync(id, request);
+
+        if (!sucesso) return NotFound();
+
+        return NoContent();
+    }
+    [HttpDelete("DeleteU")]
+    public async Task<ActionResult> DeleteAsync(Guid id)
+    {
+        var sucesso = await _userService.DeleteAsync(id);
+
+        if (!sucesso) return NotFound(new{message = "Usuário não encontrado."});
+
+        return NoContent();
+
     }
 }

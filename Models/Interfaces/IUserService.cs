@@ -9,6 +9,8 @@ public interface IUserService
     Task<UserResponse?> GetByIdAsync(Guid id);
     Task<UserResponse?> LoginAsync(CreateUserRequest request);
     Task<IEnumerable<UserResponse?>> GetAllAsync();
+    Task<bool> UpdateAsync(Guid id, UserResponse request);
+    Task<bool> DeleteAsync(Guid id);
 }
 
 public class UserResponse
