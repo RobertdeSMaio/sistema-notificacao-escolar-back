@@ -4,11 +4,19 @@ using SistemaNotificacaoEscolarBack.Data.Context;
 using SistemaNotificacaoEscolarBack.Models.Interfaces.IUserService;
 using DotNetEnv;
 using SistemaNotificacaoEscolarBack.Models.Services;
+using Notification.Service;
+using INotification.Service;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        });
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddScoped<INotificationService, NotificationService>();
 
 Env.Load();
 
