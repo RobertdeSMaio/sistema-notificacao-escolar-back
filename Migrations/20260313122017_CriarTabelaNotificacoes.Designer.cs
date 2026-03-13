@@ -12,7 +12,7 @@ using SistemaNotificacaoEscolarBack.Data.Context;
 namespace SistemaEscolar.API.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20260312203400_CriarTabelaNotificacoes")]
+    [Migration("20260313122017_CriarTabelaNotificacoes")]
     partial class CriarTabelaNotificacoes
     {
         /// <inheritdoc />

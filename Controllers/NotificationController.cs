@@ -21,7 +21,7 @@ namespace Notification.Controller
           _notificationService = notificationService;
       }
 
-      [HttpPost]
+      [HttpPost("Post")]
       public async Task<IActionResult> Create([FromBody] NotificationRequest request)
       {
           var author = User.Identity?.Name ?? "Admin";
@@ -33,7 +33,7 @@ namespace Notification.Controller
           return Ok();
       }
 
-      [HttpGet]
+      [HttpGet("Get")]
       public async Task<IActionResult> GetAll()
       {
           return Ok(await _notificationService.GetAllAsync());
