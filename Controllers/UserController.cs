@@ -48,7 +48,7 @@ public class UserController(IUserService userService) : ControllerBase
         var user = await _userService.GetByIdAsync(id);
         return user is not null ? Ok(user) : NotFound();
     }
-    [HttpGet("UserList")] // Rota: GET /api/User
+    [HttpGet("UserList")]
     public async Task<ActionResult<IEnumerable<UserResponse>>> GetAll()
     {
         var users = await _userService.GetAllAsync();
