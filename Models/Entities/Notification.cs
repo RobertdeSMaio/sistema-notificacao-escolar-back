@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Notification
@@ -19,5 +20,7 @@ namespace Notification
         public string Author { get; set; }
         
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+        public string RecipientsIds { get; set; }
     }
 }

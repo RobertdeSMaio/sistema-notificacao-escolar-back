@@ -20,14 +20,15 @@ namespace Notification.Service
     public async Task<bool> CreateNotificationAsync(NotificationRequest request, string authorName)
     {
         var notification = new NotificationEntitie
-        {
-            Id = Guid.NewGuid(),
-            Title = request.Title,
-            Content = request.Content,
-            Target = request.Target,
-            Author = authorName,
-            CreatedAt = DateTime.Now
-        };
+    {
+        Id = Guid.NewGuid(),
+        Title = request.Title,
+        Content = request.Content,
+        Target = request.Target,
+        Author = authorName,
+        CreatedAt = DateTime.Now,
+        RecipientsIds = string.Join(",", request.RecipientsIds ?? new List<string>())
+    };
 
         _context.Notifications.Add(notification);
 
