@@ -22,11 +22,11 @@ namespace Notification.Service
         var notification = new NotificationEntitie
     {
         Id = Guid.NewGuid(),
-        Title = request.Title,
-        Content = request.Content,
-        Target = request.Target,
-        Author = authorName,
-        CreatedAt = DateTime.Now,
+        Title = request.Title ?? "",
+        Content = request.Content ?? "",
+        Target = request.Target ?? "Todos",
+        Author = authorName ?? "Admin",
+        CreatedAt = DateTime.UtcNow,
         RecipientsIds = string.Join(",", request.RecipientsIds ?? new List<string>())
     };
 

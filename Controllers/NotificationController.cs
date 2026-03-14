@@ -25,7 +25,7 @@ namespace Notification.Controller
 
           if (!sucesso) return BadRequest("Erro ao criar notificação.");
 
-          return Ok();
+          return Ok(new { message = "Notificação criada com sucesso!" });
       }
 
       [HttpGet("Get")]
