@@ -12,14 +12,9 @@ namespace Notification.Controller
 
   [ApiController]
   [Route("api/[controller]")]
-  public class NotificationController : ControllerBase
+  public class NotificationController(INotificationService notificationService) : ControllerBase
   {
-      private readonly INotificationService _notificationService;
-
-      public NotificationController(INotificationService notificationService)
-      {
-          _notificationService = notificationService;
-      }
+      private readonly INotificationService _notificationService = notificationService;
 
       [HttpPost("Post")]
       public async Task<IActionResult> Create([FromBody] NotificationRequest request)
