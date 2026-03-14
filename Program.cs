@@ -8,6 +8,8 @@ using Notification.Service;
 using INotification.Service;
 using System.Text.Json;
 using SistemaNotificacaoEscolarBack.Models.Interfaces.IBoletimService;
+using SistemaNotificacaoEscolarBack.Interfaces.Dash;
+using SistemaNotificacaoEscolarBack.Services.Dash;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +21,7 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<IBoletimService, BoletimService>();
+builder.Services.AddScoped<IDashService, DashService>();
 
 Env.Load();
 

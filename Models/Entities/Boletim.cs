@@ -7,9 +7,11 @@ namespace SistemaNotificacaoEscolarBack.Models.Entities
     {
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
+        public User? Student { get; set; }
 
         [Required]
         public Guid StudentId { get; set; }
+        
 
         [Required]
         public string Materia { get; set; }
