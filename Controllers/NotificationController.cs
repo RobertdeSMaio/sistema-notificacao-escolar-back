@@ -10,29 +10,30 @@ using System.Threading.Tasks;
 namespace Notification.Controller
 {
 
-  [ApiController]
-  [Route("api/[controller]")]
-  public class NotificationController(INotificationService notificationService) : ControllerBase
-  {
-      private readonly INotificationService _notificationService = notificationService;
+        [ApiController]
+        [Route("api/[controller]")]
+        public class NotificationController(INotificationService notificationService) : ControllerBase
+        {
+        private readonly INotificationService _notificationService = notificationService;
 
-      [HttpPost("Post")]
-      public async Task<IActionResult> Create([FromBody] NotificationRequest request)
-      {
-          var author = User.Identity?.Name ?? "Admin";
+        [HttpPost("Post")]
+        public async Task<IActionResult> Create([FromBody] NotificationRequest request)
+        {
+            var author = User.Identity?.Name ?? "Admin";
 
-          var sucesso = await _notificationService.CreateNotificationAsync(request, author);
+            var sucesso = await _notificationService.CreateNotificationAsync(request, author);
 
-          if (!sucesso) return BadRequest("Erro ao criar notificação.");
+            if (!sucesso) return BadRequest("Erro ao criar notificação.");
 
-          return Ok(new { message = "Notificação criada com sucesso!" });
-      }
+            return Ok(new { message = "Notificação criada com sucesso!" });
+        }
 
-      [HttpGet("Get")]
-      public async Task<IActionResult> GetAll()
-      {
-          return Ok(await _notificationService.GetAllAsync());
-      }
-  }
+        [HttpGet("Get")]
+        public async Task<IActionResult> GetAll([FromQuery] string? userId)
+        {
+            var notifications = await _notificationService.GetAllAsync(userId);
+            return Ok(notifications);
+        }
+    }
 
 }
