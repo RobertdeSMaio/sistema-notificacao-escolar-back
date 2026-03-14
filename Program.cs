@@ -7,6 +7,7 @@ using SistemaNotificacaoEscolarBack.Models.Services;
 using Notification.Service;
 using INotification.Service;
 using System.Text.Json;
+using SistemaNotificacaoEscolarBack.Models.Interfaces.IBoletimService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,7 @@ builder.Services.AddControllers()
         });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<INotificationService, NotificationService>();
+builder.Services.AddScoped<IBoletimService, BoletimService>();
 
 Env.Load();
 

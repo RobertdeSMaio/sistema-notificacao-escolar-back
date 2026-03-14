@@ -12,5 +12,6 @@ public class MyDbContext : DbContext
 
     public DbSet<User> Users { get; set; }
     public DbSet<NotificationEntitie> Notifications { get; set; }
+    public DbSet<Boletim> Boletins { get; set; }
 
 }
