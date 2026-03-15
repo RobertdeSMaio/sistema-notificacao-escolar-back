@@ -20,7 +20,7 @@ namespace SistemaNotificacaoEscolarBack.Models.Services
             foreach (var item in request)
             {
                 var existing = await _context.Boletins
-                    .FirstOrDefaultAsync(b => b.StudentId == item.StudentId && b.Materia == item.Materia);
+                    .FirstOrDefaultAsync(b => b.StudentId == item.StudentId && b.Materia == item.Materia && b.Ano == item.Ano);
 
                 if (existing != null)
                 {
@@ -35,6 +35,7 @@ namespace SistemaNotificacaoEscolarBack.Models.Services
                     existing.NotaFinal = item.NotaFinal;
                     existing.FaltaFinal = item.FaltaFinal;
                     existing.UpdatedAt = DateTime.UtcNow;
+                    existing.Ano = item.Ano;
                 }
                 else
                 {
@@ -52,6 +53,7 @@ namespace SistemaNotificacaoEscolarBack.Models.Services
                         Falta4 = item.Falta4,
                         NotaFinal = item.NotaFinal,
                         FaltaFinal = item.FaltaFinal,
+                        Ano = item.Ano,
                     });
                 }
             }
@@ -65,6 +67,8 @@ namespace SistemaNotificacaoEscolarBack.Models.Services
                 .Where(b => b.StudentId == studentId)
                 .OrderBy(b => b.Materia)
                 .ToListAsync();
+                
         }
+        
     }
 }

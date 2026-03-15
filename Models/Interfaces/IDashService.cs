@@ -4,6 +4,6 @@ namespace SistemaNotificacaoEscolarBack.Interfaces.Dash
 {
     public interface IDashService
     {
-        Task<EstatisticasResponse> GetEstatisticasAsync(string? materia);
+        Task<EstatisticasResponse> GetEstatisticasAsync(string? materia, int? ano);
     }
 }

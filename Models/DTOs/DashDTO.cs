@@ -4,6 +4,7 @@ namespace SistemaNotificacaoEscolarBack.DTOs
     public class EstatisticasResponse
     {
         public int TotalAlunos { get; set; }
+        public int Ano { get; set; } = DateTime.UtcNow.Year;
         public double MediaGeral { get; set; }
         public int TotalFaltas { get; set; }
         public int TotalMaterias { get; set; }

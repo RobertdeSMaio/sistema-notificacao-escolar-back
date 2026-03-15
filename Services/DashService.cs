@@ -15,7 +15,7 @@ namespace SistemaNotificacaoEscolarBack.Services.Dash
             _context = context;
         }
 
-        public async Task<EstatisticasResponse> GetEstatisticasAsync(string? materia)
+        public async Task<EstatisticasResponse> GetEstatisticasAsync(string? materia, int? ano)
         {
             var query = _context.Boletins
                 .Include(b => b.Student)
@@ -28,6 +28,9 @@ namespace SistemaNotificacaoEscolarBack.Services.Dash
 
             if (!boletins.Any())
                 return new EstatisticasResponse();
+
+            if (ano.HasValue)
+                query = query.Where(b => b.Ano == ano.Value);
 
             // KPIs
             var totalAlunos = boletins.Select(b => b.StudentId).Distinct().Count();
@@ -107,5 +110,6 @@ namespace SistemaNotificacaoEscolarBack.Services.Dash
                 RankingAlunos = ranking,
             };
         }
+        
     }
 }

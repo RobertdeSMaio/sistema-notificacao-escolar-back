@@ -8,6 +8,7 @@ namespace SistemaNotificacaoEscolarBack.Models.Entities
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
         public User? Student { get; set; }
+        public int Ano { get; set; } = DateTime.UtcNow.Year;
 
         [Required]
         public Guid StudentId { get; set; }
