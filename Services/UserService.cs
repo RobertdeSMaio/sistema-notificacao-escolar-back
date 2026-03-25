@@ -116,6 +116,7 @@ public class UserService : IUserService
         user.Email = data.Email;
         user.Telefone = data.Telefone;
         user.UpdatedAt = DateTime.UtcNow;
+        user.Role = data.Role;
 
         await _context.SaveChangesAsync();
         return true;
